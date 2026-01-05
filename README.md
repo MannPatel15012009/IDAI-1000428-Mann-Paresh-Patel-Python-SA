@@ -25,6 +25,9 @@ It helps users stay consistent with their medicines by turning daily adherence i
 - Pandas
 
 ---
+### Streamlit Link:
+https://idai-1000428-mann-paresh-patel-python-sa-3phcftgfqv79lotmp2vbq.streamlit.app/
+
 
 ## ▶️ How to Run the App
 
@@ -32,5 +35,3 @@ It helps users stay consistent with their medicines by turning daily adherence i
 ```bash
 pip install -r requirements.txt
 
-### Streamlit Link:
-https://idai-1000428-mann-paresh-patel-python-sa-3phcftgfqv79lotmp2vbq.streamlit.app/
