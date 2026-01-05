@@ -31,3 +31,6 @@ It helps users stay consistent with their medicines by turning daily adherence i
 ### 1️⃣ Install dependencies
 ```bash
 pip install -r requirements.txt
+
+### Streamlit Link:
+https://idai-1000428-mann-paresh-patel-python-sa-3phcftgfqv79lotmp2vbq.streamlit.app/
