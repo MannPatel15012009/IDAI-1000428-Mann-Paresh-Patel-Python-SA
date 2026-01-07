@@ -55,6 +55,7 @@ st.markdown("""
         height: 100%;
         position: relative;
         overflow: hidden;
+        margin-bottom: 20px;
     }
     
     .gamified-card:hover {
@@ -312,6 +313,14 @@ st.markdown("""
         align-items: center;
         text-align: center;
     }
+    
+    .stButton button {
+        width: 100%;
+    }
+    
+    .stButton {
+        margin-top: 15px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -486,75 +495,83 @@ with left:
                         status, badge, icon = "Upcoming", "upcoming-badge", "🕐"
                         badge_color = "warning"
                     
-                    # Create the card using container
-                    with st.container():
-                        st.markdown(f'<div class="gamified-card">', unsafe_allow_html=True)
-                        
-                        # Check if this medicine has an achievement
-                        has_achievement = False
-                        if med["taken"] and random.random() > 0.7:  # Random chance for demo
-                            has_achievement = True
-                            st.markdown('<div class="achievement-badge">🏅</div>', unsafe_allow_html=True)
-                        
-                        # Medicine name
-                        st.markdown(f'<div class="medication-name">{icon} {med["name"]}</div>', unsafe_allow_html=True)
-                        
-                        # Medicine time
-                        st.markdown(f'''
-                        <div class="medication-time">
-                            <span>🕐</span> {med["time"].strftime("%I:%M %p")}
+                    # Create the card HTML
+                    card_html = f'''
+                    <div class="gamified-card">
+                        <div class="medicine-card-content">
+                    '''
+                    
+                    # Check if this medicine has an achievement
+                    has_achievement = False
+                    if med["taken"] and random.random() > 0.7:  # Random chance for demo
+                        has_achievement = True
+                        card_html += '<div class="achievement-badge">🏅</div>'
+                    
+                    # Medicine name
+                    card_html += f'<div class="medication-name">{icon} {med["name"]}</div>'
+                    
+                    # Medicine time
+                    card_html += f'''
+                    <div class="medication-time">
+                        <span>🕐</span> {med["time"].strftime("%I:%M %p")}
+                    </div>
+                    '''
+                    
+                    # Status badge
+                    card_html += f'<span class="badge-gamified {badge}">{status}</span>'
+                    
+                    card_html += '''
                         </div>
-                        ''', unsafe_allow_html=True)
-                        
-                        # Status badge - using st.markdown to render HTML
-                        st.markdown(f'<span class="badge-gamified {badge}">{status}</span>', unsafe_allow_html=True)
-                        
-                        # Add "I Took It" button if not taken yet
-                        if not med["taken"]:
-                            if st.button("💊 I Took It!", key=f"take_{id(med)}", use_container_width=True):
-                                med["taken"] = True
-                                st.session_state.history.append({
-                                    "Medicine": med["name"],
-                                    "Date": today,
-                                    "Time": med["time"].strftime("%I:%M %p"),
-                                    "Status": "Taken"
-                                })
-                                
-                                # Award points for taking medicine
-                                points_earned = 20
-                                st.session_state.points += points_earned
-                                
-                                # Update streak
-                                today_date = datetime.date.today()
-                                if st.session_state.last_taken_date != today_date:
-                                    if st.session_state.last_taken_date and (today_date - st.session_state.last_taken_date).days == 1:
-                                        st.session_state.streak += 1
-                                    elif not st.session_state.last_taken_date or (today_date - st.session_state.last_taken_date).days > 1:
-                                        st.session_state.streak = 1
-                                    st.session_state.last_taken_date = today_date
-                                
-                                # Check streak achievements
-                                if st.session_state.streak >= 5 and not st.session_state.achievements["streak_5"]:
-                                    st.session_state.achievements["streak_5"] = True
-                                    st.session_state.points += 100
-                                    st.session_state.celebration = f"🔥 Amazing! {st.session_state.streak}-day streak! +100 points"
-                                elif st.session_state.streak >= 10 and not st.session_state.achievements["streak_10"]:
-                                    st.session_state.achievements["streak_10"] = True
-                                    st.session_state.points += 250
-                                    st.session_state.celebration = f"🏆 Legendary! {st.session_state.streak}-day streak! +250 points"
-                                else:
-                                    celebration_messages = [
-                                        "🎉 Great job! Your future self thanks you!",
-                                        "⭐ Excellent! Consistency is key!",
-                                        "💪 Well done! You're taking control of your health!",
-                                        "✨ Bravo! Every dose brings you closer to wellness!",
-                                        "🌈 Wonderful! You're building healthy habits!"
-                                    ]
-                                    st.session_state.celebration = f"{random.choice(celebration_messages)} +{points_earned} points"
-                                
-                                st.rerun()
-                        
-                        st.markdown('</div>', unsafe_allow_html=True)
+                    </div>
+                    '''
+                    
+                    # Render the card
+                    st.markdown(card_html, unsafe_allow_html=True)
+                    
+                    # Add "I Took It" button if not taken yet
+                    if not med["taken"]:
+                        if st.button("💊 I Took It!", key=f"take_{id(med)}", use_container_width=True):
+                            med["taken"] = True
+                            st.session_state.history.append({
+                                "Medicine": med["name"],
+                                "Date": today,
+                                "Time": med["time"].strftime("%I:%M %p"),
+                                "Status": "Taken"
+                            })
+                            
+                            # Award points for taking medicine
+                            points_earned = 20
+                            st.session_state.points += points_earned
+                            
+                            # Update streak
+                            today_date = datetime.date.today()
+                            if st.session_state.last_taken_date != today_date:
+                                if st.session_state.last_taken_date and (today_date - st.session_state.last_taken_date).days == 1:
+                                    st.session_state.streak += 1
+                                elif not st.session_state.last_taken_date or (today_date - st.session_state.last_taken_date).days > 1:
+                                    st.session_state.streak = 1
+                                st.session_state.last_taken_date = today_date
+                            
+                            # Check streak achievements
+                            if st.session_state.streak >= 5 and not st.session_state.achievements["streak_5"]:
+                                st.session_state.achievements["streak_5"] = True
+                                st.session_state.points += 100
+                                st.session_state.celebration = f"🔥 Amazing! {st.session_state.streak}-day streak! +100 points"
+                            elif st.session_state.streak >= 10 and not st.session_state.achievements["streak_10"]:
+                                st.session_state.achievements["streak_10"] = True
+                                st.session_state.points += 250
+                                st.session_state.celebration = f"🏆 Legendary! {st.session_state.streak}-day streak! +250 points"
+                            else:
+                                celebration_messages = [
+                                    "🎉 Great job! Your future self thanks you!",
+                                    "⭐ Excellent! Consistency is key!",
+                                    "💪 Well done! You're taking control of your health!",
+                                    "✨ Bravo! Every dose brings you closer to wellness!",
+                                    "🌈 Wonderful! You're building healthy habits!"
+                                ]
+                                st.session_state.celebration = f"{random.choice(celebration_messages)} +{points_earned} points"
+                            
+                            st.rerun()
     else:
         st.markdown("""
         <div style="text-align: center; padding: 50px; background: white; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
@@ -765,4 +782,3 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
-
