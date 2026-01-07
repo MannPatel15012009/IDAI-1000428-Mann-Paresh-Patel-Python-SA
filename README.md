@@ -2,8 +2,6 @@
 arkdown
 # 💧 WaterBuddy - Smart Hydration Tracker
 
-![WaterBuddy Screenshot](https://via.placeholder.com/800x400/4CAF50/FFFFFF?text=WaterBuddy+Hydration+Tracker)
-
 A feature-rich, interactive hydration tracking application built with Streamlit that helps you stay hydrated through gamification, visual feedback, and personalized insights.
 
 ## ✨ Features
