@@ -1,5 +1,4 @@
 # IDAI-1000428-Mann-Paresh-Patel-Python-SA
-arkdown
 💊 MedTimer Pro — Gamified Medication Tracker & Health Companion
 
 MedTimer Pro is an interactive, aesthetically designed medication management and reminder application built with Streamlit.
