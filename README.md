@@ -1,20 +1,8 @@
+Write in paragraph format for GitHub
 # IDAI-1000428-Mann-Paresh-Patel-Python-SA
 💊 MedTimer Pro — Gamified Medication Tracker & Health Companion
 
-MedTimer Pro is an interactive, aesthetically designed medication management and reminder application built with Streamlit.
-This system transforms regular medicine tracking into a motivating and rewarding experience using gamification concepts such as:
-
-Points
-
-Streaks
-
-Levels
-
-Achievements
-
-Progress dashboards
-
-The goal of MedTimer Pro is to help users build consistent medication habits, improve treatment adherence, and make routine healthcare engaging rather than tedious.
+MedTimer Pro is an interactive, aesthetically designed medication management and reminder application built with Streamlit.This system transforms regular medicine tracking into a motivating and rewarding experience using gamification concepts such as points,streaks,levels,achievements,progress dashboards.The goal of MedTimer Pro is to help users build consistent medication habits, improve treatment adherence, and make routine healthcare engaging rather than tedious.
 
 📚 Table of Contents
 
