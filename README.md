@@ -81,25 +81,24 @@ Internet connection (for initial package installation)
 Clone the repository:
 
 bash
-'''git clone https://github.com/MannPatel15012009/IDAI-1000428-Mann-Paresh-Patel-Python-SA.git
+''' git clone https://github.com/MannPatel15012009/IDAI-1000428-Mann-Paresh-Patel-Python-SA.git
 cd IDAI-1000428-Mann-Paresh-Patel-Python-SA
 '''
 #### Install required dependencies:
 
 bash
-'pip install streamlit pandas'
+' pip install streamlit pandas'
 Run the application:
 
 bash
-'streamlit run app.py'
+' streamlit run app.py'
 #### Access the application:
 Open your web browser and navigate to http://localhost:8501
 
 ### Cloud Deployment (Streamlit Cloud):
 Create a requirements.txt file with the following content:
 
-'''txt
-streamlit
+'''streamlit
 pandas
 '''
 Upload your project to GitHub 
@@ -309,7 +308,7 @@ Usage analytics (with user consent)
 
 Note: This tool is for tracking purposes only. Always consult with healthcare professionals regarding medication management.
 
-##🙏 Acknowledgments
+## 🙏 Acknowledgments
 Streamlit team for the amazing framework
 
 Health professionals for medication management insights
