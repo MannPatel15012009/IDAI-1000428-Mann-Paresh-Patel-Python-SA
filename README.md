@@ -287,12 +287,12 @@ Add social features for community support
 
 Implement prescription management system
 ## Visuals of the App
-<img width="1920" height="1080" alt="Screenshot (140)" src="https://github.com/user-attachments/assets/d8f6d6eb-5816-4696-818a-3fc707ea55e6" />
-<img width="1919" height="969" alt="Screenshot 2026-01-24 172002" src="https://github.com/user-attachments/assets/4c214a6d-c2c1-40e5-ab04-8058e467873c" />
-<img width="1920" height="1080" alt="Screenshot (141)" src="https://github.com/user-attachments/assets/3e4d2246-1d35-4f50-952f-c61e750d3195" />
-<img width="1920" height="1080" alt="Screenshot (142)" src="https://github.com/user-attachments/assets/e84bca4b-d840-420d-b83b-c4f451545220" />
-<img width="1920" height="1080" alt="Screenshot (138)" src="https://github.com/user-attachments/assets/88198cd8-92f4-44f7-86c3-7c8d05fe0ff4" />
-<img width="1920" height="1080" alt="Screenshot (139)" src="https://github.com/user-attachments/assets/6fed22a1-0c4c-42a3-9c4d-981798b3c3d0" />
+<img width="1920" height="1080" alt="Screenshot (137)" src="https://github.com/user-attachments/assets/7e8081d8-7ed3-4236-864b-abc1db651c94" />
+<img width="1920" height="1080" alt="Screenshot (138)" src="https://github.com/user-attachments/assets/6abeda41-5c97-43e2-af80-f2e0efb6d227" />
+<img width="1920" height="1080" alt="Screenshot (139)" src="https://github.com/user-attachments/assets/e162afc1-0380-4d00-addf-3788b93e449f" />
+<img width="1920" height="1080" alt="Screenshot (140)" src="https://github.com/user-attachments/assets/5c1a1701-4951-42de-aa5e-afa1b43eaf80" />
+<img width="1920" height="1080" alt="Screenshot (142)" src="https://github.com/user-attachments/assets/00ef2f97-234f-4919-b47b-df2404252e0b" />
+
 
 ## 🤝 Testing & Feedback
 ### Testing Methodology
