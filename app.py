@@ -1387,7 +1387,7 @@ with left:
                             st.rerun()
     else:
         st.markdown("""
-        <div style="text-align: center; padding: 50px; background: white; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <div style="text-align: center; padding: 50px; background: black; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
             <h3 style="color: #FFFFFF;">No medications scheduled for today</h3>
             <p>Add your first medicine above to start tracking! 🚀</p>
         </div>
