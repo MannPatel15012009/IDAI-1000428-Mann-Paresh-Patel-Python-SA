@@ -835,6 +835,7 @@ def show_advanced_progress():
     st.markdown("""
     <div style="
         background: white;
+        color:black;
         padding: 25px;
         border-radius: 20px;
         margin: 30px 0;
