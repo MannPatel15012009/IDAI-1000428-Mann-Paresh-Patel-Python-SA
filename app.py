@@ -1556,24 +1556,31 @@ for idx in range(5):
             
             if is_earned:
                 st.markdown(f"""
-                <div style="
-                    background: linear-gradient(135deg, {badge_info['color']}20 0%, {badge_info['color']}10 100%);
-                    border: 2px solid {badge_info['color']};
-                    color:white;
-                    padding: 20px;
-                    border-radius: 20px;
-                    text-align: center;
-                    height: 140px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
-                ">
-                    <div style="font-size: 2.5rem; margin-bottom: 10px;">{badge_info['icon']}</div>
-                    <div style="font-weight: 700; color: #1e293b; font-size: 0.9rem;">{badge_info['name']}</div>
-                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">Earned Today!</div>
-                </div>
+               <div style="
+    background: linear-gradient(135deg, {badge_info['color']}20 0%, {badge_info['color']}10 100%);
+    border: 2px solid {badge_info['color']};
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    color: white;
+">
+    <div style="font-size: 2.5rem; margin-bottom: 10px;">
+        {badge_info['icon']}
+    </div>
+    <div style="font-weight: 700; font-size: 0.9rem;">
+        {badge_info['name']}
+    </div>
+    <div style="font-size: 0.7rem; margin-top: 5px; opacity: 0.85;">
+        Earned Today!
+    </div>
+</div>
+
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
