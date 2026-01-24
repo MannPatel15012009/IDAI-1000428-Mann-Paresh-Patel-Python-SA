@@ -839,7 +839,7 @@ def show_advanced_progress():
         border-radius: 20px;
         margin: 30px 0;
         box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        color:white;
+         color: white;
     ">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
             <div style="font-weight: 700; color: #1e293b; font-size: 1.1rem;">📈 Weekly Progress Dashboard</div>
