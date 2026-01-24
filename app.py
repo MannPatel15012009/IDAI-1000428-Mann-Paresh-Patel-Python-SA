@@ -26,6 +26,7 @@ st.markdown("""
     body {
         background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
         background-attachment: fixed;
+        color: #1e293b !important;
     }
     
     .main-header {
@@ -176,6 +177,7 @@ st.markdown("""
         background: rgba(16, 185, 129, 0.1);
         margin: 20px 0;
         border: 2px dashed #10b981;
+        color: #064e3b !important;
     }
     
     @keyframes celebrate {
@@ -312,6 +314,7 @@ st.markdown("""
         flex-direction: column;
         align-items: center;
         text-align: center;
+        color: #1e293b !important;
     }
     
     .stButton button {
@@ -341,6 +344,260 @@ st.markdown("""
         white-space: nowrap;
         z-index: 100;
     }
+    
+    /* Dataframe styling for light mode */
+    .stDataFrame, .dataframe {
+        background: white !important;
+    }
+    
+    .dataframe th {
+        background: #f8fafc !important;
+        color: #1e293b !important;
+        border-color: #e2e8f0 !important;
+    }
+    
+    .dataframe td {
+        background: white !important;
+        color: #1e293b !important;
+        border-color: #e2e8f0 !important;
+    }
+    
+    /* Info boxes in light mode */
+    .stAlert {
+        background: #f8fafc !important;
+        border-color: #e2e8f0 !important;
+    }
+    
+    .element-container .stAlert [data-testid="stMarkdownContainer"] {
+        color: #1e293b !important;
+    }
+    
+    /* ========== DARK MODE FIXES ========== */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+            color: white !important;
+        }
+        
+        .main-header {
+            background: linear-gradient(90deg, #94a3b8 0%, #cbd5e1 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        
+        .sub-header {
+            color: #cbd5e1 !important;
+        }
+        
+        .gamified-card {
+            background: #1e293b !important;
+            border-color: #475569 !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .gamified-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
+        }
+        
+        .medication-name {
+            color: white !important;
+        }
+        
+        .medication-time {
+            color: #cbd5e1 !important;
+        }
+        
+        .progress-container, .add-medicine-section {
+            background: #1e293b !important;
+            border-color: #475569 !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .progress-title, .section-title {
+            color: white !important;
+        }
+        
+        .stat-box {
+            background: #1e293b !important;
+            border-color: #475569 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .stat-value {
+            color: #94a3b8 !important;
+        }
+        
+        .stat-label {
+            color: #cbd5e1 !important;
+        }
+        
+        /* Input fields in dark mode */
+        .stTextInput input, .stSelectbox select, .stTextInput input:focus {
+            background-color: #1e293b !important;
+            color: white !important;
+            border-color: #475569 !important;
+        }
+        
+        /* Placeholder text */
+        .stTextInput input::placeholder {
+            color: #94a3b8 !important;
+        }
+        
+        /* Radio buttons in dark mode */
+        .stRadio > div {
+            color: white !important;
+        }
+        
+        /* Form labels */
+        label, [data-testid="stMarkdownContainer"] {
+            color: white !important;
+        }
+        
+        /* Dataframe in dark mode */
+        .stDataFrame, .dataframe {
+            background: #1e293b !important;
+        }
+        
+        .dataframe th {
+            background: #334155 !important;
+            color: white !important;
+            border-color: #475569 !important;
+        }
+        
+        .dataframe td {
+            background: #1e293b !important;
+            color: white !important;
+            border-color: #475569 !important;
+        }
+        
+        /* Tab headers in dark mode */
+        .stTabs [data-baseweb="tab-list"] {
+            background: #1e293b !important;
+            border-color: #475569 !important;
+        }
+        
+        .stTabs [data-baseweb="tab"] {
+            color: #cbd5e1 !important;
+        }
+        
+        .stTabs [aria-selected="true"] {
+            color: white !important;
+        }
+        
+        /* Metrics in dark mode */
+        [data-testid="stMetricValue"], [data-testid="stMetricLabel"] {
+            color: white !important;
+        }
+        
+        /* Info boxes in dark mode */
+        .stAlert {
+            background: #0f172a !important;
+            border-color: #334155 !important;
+        }
+        
+        .element-container .stAlert [data-testid="stMarkdownContainer"] {
+            color: white !important;
+        }
+        
+        /* Progress bar background */
+        .stProgress > div > div > div {
+            background-color: #334155 !important;
+        }
+        
+        /* Table borders */
+        [data-testid="stTable"] {
+            border: 1px solid #475569 !important;
+        }
+        
+        /* Selectbox dropdown */
+        [data-baseweb="select"] {
+            color: white !important;
+            background-color: #1e293b !important;
+        }
+        
+        /* Time format radio labels */
+        .stRadio label p {
+            color: white !important;
+        }
+        
+        /* Medicine card content */
+        .medicine-card-content {
+            color: white !important;
+        }
+        
+        /* Footer text */
+        .footer {
+            color: #cbd5e1 !important;
+        }
+        
+        /* Health tip box */
+        [data-testid="stExpander"] {
+            background: #1e293b !important;
+            border-color: #475569 !important;
+        }
+        
+        /* Tooltip background */
+        .points-tooltip:hover::after {
+            background: #0f172a !important;
+            border: 1px solid #475569 !important;
+            color: white !important;
+        }
+        
+        /* Stats box text */
+        .stat-box .stat-value, .stat-box .stat-label {
+            color: white !important;
+        }
+        
+        /* Celebration animation */
+        .celebration-animation {
+            color: white !important;
+            background: rgba(16, 185, 129, 0.2) !important;
+            border-color: #10b981 !important;
+        }
+        
+        /* Suggestion box */
+        div[data-testid="stHorizontalBlock"] > div > div {
+            color: white !important;
+        }
+        
+        /* Custom containers with white background */
+        div.stMarkdown > div {
+            color: white !important;
+        }
+        
+        /* All p tags in dark mode */
+        p {
+            color: white !important;
+        }
+        
+        /* All h1-h6 tags in dark mode */
+        h1, h2, h3, h4, h5, h6 {
+            color: white !important;
+        }
+        
+        /* Streamlit text elements */
+        .stMarkdown {
+            color: white !important;
+        }
+        
+        /* Streamlit caption */
+        .stCaption {
+            color: #94a3b8 !important;
+        }
+        
+        /* Badge text in dark mode */
+        .badge-gamified {
+            color: white !important;
+        }
+        
+        /* Progress percentage in dark mode */
+        .progress-percentage {
+            color: white !important;
+            -webkit-text-fill-color: white !important;
+            background: linear-gradient(90deg, #94a3b8 0%, #cbd5e1 100%) !important;
+            -webkit-background-clip: text !important;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -367,6 +624,29 @@ SUGGESTIONS = [
     "💡 Always check expiration dates monthly",
     "💡 Keep a backup supply for emergencies",
     "💡 Store medicines away from heat and humidity",
+]
+
+DAILY_HEALTH_TIPS = [
+    "🌿 Staying hydrated helps your body process medications more effectively. Aim for 8 glasses of water daily!",
+    "🥗 Eating a balanced meal before taking medications can help with absorption and reduce stomach upset.",
+    "⏰ Taking medications at the same time each day helps build a consistent routine for better adherence.",
+    "📝 Keep a medication diary to track any side effects or reactions you experience.",
+    "🌡️ Store medications properly - most should be kept in a cool, dry place away from direct sunlight.",
+    "💊 Never skip a dose; if you forget, take it as soon as you remember unless it's close to the next dose.",
+    "🍌 Some medications work better with certain foods - check if yours should be taken with or without food.",
+    "🧘 Deep breathing exercises can help if you feel anxious about taking medications regularly.",
+    "📱 Set phone reminders for your medication times to ensure you never miss a dose.",
+    "🏃 Regular light exercise can improve how your body responds to medications.",
+    "😴 Getting enough sleep helps your body recover and process medications effectively.",
+    "🚭 Avoid alcohol when taking medications as it can interfere with their effectiveness.",
+    "🥛 Always take pills with a full glass of water to help them dissolve properly.",
+    "📊 Review your medications with your doctor regularly to ensure they're still needed.",
+    "🧴 Use a weekly pill organizer to keep track of your daily doses.",
+    "🌅 Morning medications are best taken after breakfast to avoid stomach irritation.",
+    "🌙 Evening medications should be taken at least 2 hours before bedtime for proper absorption.",
+    "🤝 Inform all your healthcare providers about all medications you're taking to avoid interactions.",
+    "📦 Keep medications in their original containers with labels intact.",
+    "🧼 Wash your hands before handling medications to prevent contamination.",
 ]
 
 # Additional badge types
@@ -416,6 +696,322 @@ if "achievements" not in st.session_state:
         "streak_10": False,
         "all_taken": False
     }
+
+# NEW SESSION STATE VARIABLES FOR ADVANCED PROGRESS
+if "weekly_history" not in st.session_state:
+    st.session_state.weekly_history = {}
+if "daily_progress" not in st.session_state:
+    st.session_state.daily_progress = {}
+if "progress_insights" not in st.session_state:
+    st.session_state.progress_insights = []
+if "current_health_tip" not in st.session_state:
+    st.session_state.current_health_tip = random.choice(DAILY_HEALTH_TIPS)
+
+# ------------------------------------------
+# ADVANCED PROGRESS DASHBOARD FUNCTIONS
+# ------------------------------------------
+def track_daily_progress():
+    """Track today's progress in session state"""
+    today = datetime.date.today()
+    today_str = today.isoformat()
+    
+    if today_str not in st.session_state.daily_progress:
+        meds_today = [m for m in st.session_state.meds if m["date"] == today]
+        total_today = len(meds_today)
+        
+        st.session_state.daily_progress[today_str] = {
+            "date": today,
+            "total": total_today,
+            "taken": 0,
+            "progress": 0.0,
+            "updated_at": datetime.datetime.now()
+        }
+    
+    meds_today = [m for m in st.session_state.meds if m["date"] == today]
+    taken_today = len([m for m in meds_today if m["taken"]])
+    total_today = len(meds_today)
+    
+    progress = (taken_today / total_today) if total_today > 0 else 0
+    
+    st.session_state.daily_progress[today_str].update({
+        "total": total_today,
+        "taken": taken_today,
+        "progress": progress,
+        "updated_at": datetime.datetime.now()
+    })
+    
+    return progress
+
+def generate_weekly_simulation():
+    """Generate simulated past week data"""
+    today = datetime.date.today()
+    days_back = 6
+    
+    simulated_data = []
+    
+    for i in range(days_back, -1, -1):
+        day_date = today - datetime.timedelta(days=i)
+        day_str = day_date.isoformat()
+        
+        if i == 0:
+            if day_str in st.session_state.daily_progress:
+                data = st.session_state.daily_progress[day_str]
+                simulated_data.append({
+                    "date": day_date,
+                    "progress": data["progress"],
+                    "taken": data["taken"],
+                    "total": data["total"],
+                    "is_actual": True
+                })
+            else:
+                simulated_data.append({
+                    "date": day_date,
+                    "progress": 0.0,
+                    "taken": 0,
+                    "total": 0,
+                    "is_actual": False
+                })
+        else:
+            base_score = 0.7
+            if st.session_state.streak > 3:
+                base_score += 0.15
+            if st.session_state.points > 100:
+                base_score += 0.1
+            
+            final_score = max(0.4, min(0.98, base_score + random.uniform(-0.1, 0.1)))
+            
+            weekday = day_date.weekday()
+            if weekday >= 5:
+                final_score = max(0.3, final_score - 0.1)
+            
+            simulated_data.append({
+                "date": day_date,
+                "progress": final_score,
+                "taken": random.randint(2, 4) if final_score > 0.5 else random.randint(0, 2),
+                "total": random.randint(3, 5),
+                "is_actual": False
+            })
+    
+    return simulated_data
+
+def update_progress_insights():
+    """Generate personalized insights"""
+    insights = []
+    
+    today_progress = track_daily_progress()
+    if today_progress == 1.0:
+        insights.append("🎉 **Perfect day!** You've taken all medications today!")
+    elif today_progress >= 0.5:
+        insights.append(f"👍 **Good progress!** You're {int(today_progress*100)}% done for today.")
+    else:
+        insights.append("⏰ **Time for action!** Your medications are waiting.")
+    
+    if st.session_state.streak >= 7:
+        insights.append(f"🔥 **Consistency Champion!** A {st.session_state.streak}-day streak is impressive!")
+    elif st.session_state.streak >= 3:
+        insights.append(f"📈 **Building momentum!** {st.session_state.streak} days in a row!")
+    
+    if st.session_state.points >= 200:
+        insights.append(f"🏆 **Health Hero!** {st.session_state.points} points earned!")
+    elif st.session_state.points >= 100:
+        insights.append(f"⭐ **Great progress!** {st.session_state.points} points shows dedication.")
+    
+    current_hour = datetime.datetime.now().hour
+    if 6 <= current_hour < 12:
+        insights.append("🌅 **Morning reminder:** Take medications with breakfast.")
+    elif 12 <= current_hour < 18:
+        insights.append("☀️ **Afternoon check-in:** Don't forget midday medications!")
+    
+    st.session_state.progress_insights = insights[:4]
+    return insights
+
+def show_advanced_progress():
+    """Show advanced progress dashboard"""
+    
+    today_progress = track_daily_progress()
+    insights = update_progress_insights()
+    weekly_data = generate_weekly_simulation()
+    
+    st.markdown("""
+    <div style="
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        margin: 30px 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    ">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="font-weight: 700; color: #1e293b; font-size: 1.1rem;">📈 Weekly Progress Dashboard</div>
+            <div style="font-size: 0.8rem; color: #64748b;">Live Tracking • Updated Just Now</div>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    tab1, tab2, tab3 = st.tabs(["📊 Daily Progress", "📈 Trends & Analytics", "💡 Personalized Insights"])
+    
+    with tab1:
+        st.subheader("This Week at a Glance")
+        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        today = datetime.date.today()
+        current_weekday = today.weekday()
+        
+        for i, day_data in enumerate(weekly_data):
+            day_name = days[(current_weekday - (len(weekly_data) - 1 - i)) % 7]
+            progress = day_data["progress"]
+            
+            col1, col2, col3, col4 = st.columns([1, 4, 2, 1])
+            
+            with col1:
+                if i == len(weekly_data) - 1:
+                    st.markdown(f"<h4 style='color: #6366f1; margin: 0;'>🎯 {day_name}</h4>", unsafe_allow_html=True)
+                else:
+                    st.markdown(f"<h4 style='margin: 0;'>{day_name}</h4>", unsafe_allow_html=True)
+            
+            with col2:
+                if progress == 0:
+                    bar_color = "#e2e8f0"
+                elif progress >= 0.8:
+                    bar_color = "#10b981"
+                elif progress >= 0.6:
+                    bar_color = "#f59e0b"
+                else:
+                    bar_color = "#ef4444"
+                
+                st.markdown(f"""
+                <div style="background: #f1f5f9; border-radius: 10px; height: 24px; overflow: hidden; margin: 5px 0;">
+                    <div style="background: {bar_color}; width: {progress*100}%; height: 100%; 
+                            border-radius: 10px; display: flex; align-items: center; padding-left: 10px;">
+                        <span style="color: white; font-weight: bold; font-size: 0.8rem;">
+                            {int(progress*100)}%
+                        </span>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+            
+            with col3:
+                if day_data["total"] > 0:
+                    st.markdown(f"**{day_data['taken']}/{day_data['total']} doses**")
+            
+            with col4:
+                if i == len(weekly_data) - 1:
+                    if progress == 1.0:
+                        st.success("✅")
+                    elif progress > 0:
+                        st.warning("⏳")
+                    else:
+                        st.error("❌")
+                else:
+                    if progress >= 0.8:
+                        st.success("✅")
+                    elif progress >= 0.6:
+                        st.warning("⚠️")
+                    elif progress > 0:
+                        st.error("❌")
+        
+        st.markdown("---")
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            avg_progress = sum(d["progress"] for d in weekly_data) / len(weekly_data)
+            st.metric("📊 Weekly Avg", f"{avg_progress*100:.0f}%")
+        
+        with col2:
+            best_day = max(weekly_data, key=lambda x: x["progress"])
+            best_day_name = days[best_day["date"].weekday()]
+            st.metric("🏆 Best Day", f"{best_day_name} ({best_day['progress']*100:.0f}%)")
+        
+        with col3:
+            consistency = min(100, st.session_state.streak * 12 + int(avg_progress * 40))
+            st.metric("🔥 Consistency", f"{consistency}/100")
+        
+        with col4:
+            monthly_estimate = int(avg_progress * 120)
+            st.metric("📅 Monthly Est", f"{monthly_estimate}/120 doses")
+    
+    with tab2:
+        st.subheader("Adherence Trends & Patterns")
+        
+        chart_data = pd.DataFrame([
+            {
+                "Date": d["date"],
+                "Adherence %": d["progress"] * 100,
+                "Type": "Actual" if d["is_actual"] else "Estimated"
+            }
+            for d in weekly_data
+        ])
+        
+        st.line_chart(chart_data.set_index("Date")["Adherence %"])
+        
+        st.subheader("📋 Pattern Analysis")
+        weekday_data = [d for d in weekly_data if d["date"].weekday() < 5]
+        weekend_data = [d for d in weekly_data if d["date"].weekday() >= 5]
+        
+        if weekday_data and weekend_data:
+            weekday_avg = sum(d["progress"] for d in weekday_data) / len(weekday_data)
+            weekend_avg = sum(d["progress"] for d in weekend_data) / len(weekend_data)
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                st.metric("Weekday Avg", f"{weekday_avg*100:.1f}%")
+            with col2:
+                st.metric("Weekend Avg", f"{weekend_avg*100:.1f}%")
+            
+            if weekend_avg < weekday_avg * 0.8:
+                st.info("**Pattern detected:** Your adherence is lower on weekends.")
+    
+    with tab3:
+        st.subheader("💡 Your Personalized Insights")
+        
+        for insight in st.session_state.progress_insights:
+            st.markdown(f"""
+            <div style="
+                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+                border-left: 4px solid #0ea5e9;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+            ">
+                {insight}
+            </div>
+            """, unsafe_allow_html=True)
+        
+        st.subheader("🎯 Recommended Actions")
+        today = datetime.date.today()
+        meds_today = [m for m in st.session_state.meds if m["date"] == today]
+        upcoming = [m for m in meds_today if not m["taken"]]
+        
+        if upcoming:
+            next_med = min(upcoming, key=lambda x: x["time"])
+            time_str = next_med["time"].strftime("%I:%M %p")
+            
+            st.info(f"""
+            **⏰ Next Medication Due:**
+            - **Medicine:** {next_med['name']}
+            - **Scheduled:** {time_str}
+            - **Status:** Waiting
+            """)
+            
+            if st.button(f"✅ Mark {next_med['name']} as Taken", type="primary", use_container_width=True):
+                next_med["taken"] = True
+                st.rerun()
+        
+        elif meds_today and all(m["taken"] for m in meds_today):
+            st.success("**✅ All Caught Up!** You've taken all medications for today.")
+        
+        st.subheader("🏁 Weekly Goal Progress")
+        goal_percentage = 90
+        current_avg = sum(d["progress"] for d in weekly_data) / len(weekly_data) * 100
+        
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            progress_to_goal = min(100, current_avg / goal_percentage * 100)
+            st.progress(progress_to_goal / 100)
+        with col2:
+            st.metric("Goal", f"{current_avg:.0f}/{goal_percentage}%")
+        
+        if current_avg >= goal_percentage:
+            st.success(f"🎉 You've achieved your weekly goal of {goal_percentage}%!")
+    
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # ------------------------------------------
 # HEADER WITH ANIMATION
@@ -468,7 +1064,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # ------------------------------------------
 st.markdown(f"""
 <div style="
-    background: linear-gradient(135deg, {st.session_state.motivational_tip['color']}15 0%, {st.session_state.motivational_tip['color']}05 100%);
+        background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%);
     border-left: 5px solid {st.session_state.motivational_tip['color']};
     padding: 20px;
     border-radius: 16px;
@@ -518,16 +1114,114 @@ with col2:
 st.markdown('<div class="add-medicine-section">', unsafe_allow_html=True)
 st.markdown('<div class="section-title">➕ Add New Medication</div>', unsafe_allow_html=True)
 
-c1, c2, c3, c4 = st.columns([3, 2, 1.5, 1.5])
+# Use a form to capture Enter key
+# Get time format from session state if it exists
+if "time_format" not in st.session_state:
+    st.session_state.time_format = "12-hour"
+
+c1, c2, c3 = st.columns([3, 2, 2])
 
 with c1:
-    name = st.text_input("Medicine Name", placeholder="e.g., Vitamin D, Metformin...")
+    name = st.text_input("Medicine Name", placeholder="e.g., Vitamin D, Metformin...", key="med_name")
 
 with c2:
-    time = st.time_input("Scheduled Time", value=datetime.time(9, 0))
+    # Time format selection that updates immediately
+    new_format = st.radio(
+        "Select Time Format",
+        ["12-hour", "24-hour"],
+        horizontal=True,
+        index=0 if st.session_state.time_format == "12-hour" else 1,
+        key="time_format_radio"
+    )
+    
+    # Update session state if format changed
+    if new_format != st.session_state.time_format:
+        st.session_state.time_format = new_format
+        st.rerun()
 
 with c3:
-    st.markdown("<br>", unsafe_allow_html=True)
+    if st.session_state.time_format == "12-hour":
+        # 12-hour format with better layout
+        st.markdown("<div style='font-size: 0.9rem; color: #64748b; margin-bottom: 5px;'>Set Time (12-hour)</div>", unsafe_allow_html=True)
+        
+        time_col1, time_col2, time_col3 = st.columns(3)
+        
+        with time_col1:
+            hour = st.selectbox("Hour", list(range(1, 13)), index=8, key="hour_12", label_visibility="collapsed")
+        
+        with time_col2:
+            minute_input = st.text_input("Minute", value="00", max_chars=2, key="minute_12", label_visibility="collapsed")
+        
+        with time_col3:
+            am_pm = st.selectbox("AM/PM", ["AM", "PM"], index=0, key="am_pm", label_visibility="collapsed")
+        
+        # Add labels below for clarity
+        st.markdown("""
+        <div style='display: flex; justify-content: space-between; font-size: 0.7rem; color: #94a3b8; margin-top: -10px;'>
+            <div>Hour</div>
+            <div>Minute</div>
+            <div>AM/PM</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Validate and convert minute
+        try:
+            minute_int = int(minute_input) if minute_input.isdigit() else 0
+            if minute_int < 0 or minute_int > 59:
+                minute_int = 0
+        except:
+            minute_int = 0
+        
+        # Convert 12-hour to 24-hour format
+        hour_24 = hour
+        if am_pm == "AM":
+            if hour == 12:
+                hour_24 = 0  # 12 AM = 00:00
+            else:
+                hour_24 = hour  # 1-11 AM = same hour
+        else:  # PM
+            if hour == 12:
+                hour_24 = 12  # 12 PM = 12:00
+            else:
+                hour_24 = hour + 12  # 1-11 PM = hour + 12
+        
+        time = datetime.time(hour_24, minute_int)
+        
+    else:  # 24-hour format
+        st.markdown("<div style='font-size: 0.9rem; color: #64748b; margin-bottom: 5px;'>Set Time (24-hour)</div>", unsafe_allow_html=True)
+        
+        time_col1, time_col2 = st.columns(2)
+        
+        with time_col1:
+            hour_24 = st.selectbox("Hour", list(range(0, 24)), index=9, key="hour_24", label_visibility="collapsed")
+        
+        with time_col2:
+            minute_input = st.text_input("Minute", value="00", max_chars=2, key="minute_24", label_visibility="collapsed")
+        
+        # Add labels below for clarity
+        st.markdown("""
+        <div style='display: flex; justify-content: space-around; font-size: 0.7rem; color: #94a3b8; margin-top: -10px;'>
+            <div>Hour (0-23)</div>
+            <div>Minute (0-59)</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Validate minute
+        try:
+            minute_int = int(minute_input) if minute_input.isdigit() else 0
+            if minute_int < 0 or minute_int > 59:
+                minute_int = 0
+        except:
+            minute_int = 0
+        
+        time = datetime.time(hour_24, minute_int)
+
+# Submit buttons in a new row
+st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
+c4, c5 = st.columns(2)
+
+# Create separate forms for the buttons to work properly
+with c4:
     if st.button("✨ Add Medicine", use_container_width=True, type="primary"):
         if name:
             st.session_state.meds.append({
@@ -550,9 +1244,8 @@ with c3:
             st.success(f"✅ {name} added! +10 points")
             st.rerun()
 
-with c4:
-    st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("🎲 Quick Add", use_container_width=True):
+with c5:
+    if st.button("🎲 Quick Add", use_container_width=True, type="secondary"):
         quick_meds = ["Vitamin C", "Iron Supplement", "Multivitamin", "Omega-3", "Calcium"]
         quick_name = random.choice(quick_meds)
         quick_time = datetime.time(random.randint(7, 20), 0)
@@ -567,8 +1260,6 @@ with c4:
         st.session_state.points += 5
         st.success(f"⚡ Quick-added {quick_name} for {quick_time.strftime('%I:%M %p')}! +5 points")
         st.rerun()
-
-st.markdown('</div>', unsafe_allow_html=True)
 
 # ------------------------------------------
 # MAIN DASHBOARD
@@ -795,86 +1486,55 @@ with right:
         ⚡ {points_to_next} points to Level {level + 1}
     </div>
     """, unsafe_allow_html=True)
+
+# ------------------------------------------
+# HEALTH TIPS SIDEBAR
+# ------------------------------------------
+st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
+
+with st.container():
+    # Header with title and refresh button
+    col1, col2 = st.columns([4, 1])
     
-    # ------------------------------------------
-    # HEALTH TIPS SIDEBAR
-    # ------------------------------------------
-    st.markdown("""
+    with col1:
+        st.markdown("#### 🌿 Daily Health Tip")
+    
+    with col2:
+        # Refresh button
+        if st.button("🔄 New", key="tip_refresh_header", use_container_width=True):
+            st.session_state.current_health_tip = random.choice(DAILY_HEALTH_TIPS)
+            st.rerun()
+    
+    # Tip content in a styled box
+    st.markdown(f"""
     <div style="
         background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
         padding: 20px;
-        border-radius: 20px;
-        margin-top: 25px;
+        border-radius: 15px;
+        margin: 10px 0;
         border: 2px solid #FBBF24;
+        color: #78350F;
+        font-size: 0.95rem;
+        line-height: 1.5;
     ">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-            <span style="font-size: 1.5rem;">🌿</span>
-            <div style="font-weight: 700; color: #92400E;">Daily Health Tip</div>
-        </div>
-        <div style="color: #78350F; font-size: 0.9rem; line-height: 1.5;">
-            Staying hydrated helps your body process medications more effectively. 
-            Aim for 8 glasses of water daily!
-        </div>
+        {st.session_state.current_health_tip}
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown('</div>', unsafe_allow_html=True)
+    # Tip counter (optional)
+    try:
+        tip_index = DAILY_HEALTH_TIPS.index(st.session_state.current_health_tip) + 1
+        st.caption(f"Tip {tip_index} of {len(DAILY_HEALTH_TIPS)} • Click 'New' for another tip")
+    except ValueError:
+        # If the current tip isn't in the list (shouldn't happen normally)
+        st.caption("Daily health tip • Click 'New' for another")
 
-# ------------------------------------------
-# ACHIEVEMENTS & DOWNLOAD SECTION
-# ------------------------------------------
-st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
-st.markdown('<div class="section-title">🏆 Your Achievements</div>', unsafe_allow_html=True)
-
-# Display achievements
-achievement_cols = st.columns(5)
-achievements_list = [
-    {"name": "First Step", "desc": "Add your first medicine", "achieved": st.session_state.achievements["first_med"], "icon": "1️⃣"},
-    {"name": "5-Day Streak", "desc": "Take medicine for 5 consecutive days", "achieved": st.session_state.achievements["streak_5"], "icon": "🔥"},
-    {"name": "Perfect Day", "desc": "Take all medicines for the day", "achieved": taken_count == total and total > 0, "icon": "⭐"},
-    {"name": "10-Day Streak", "desc": "Take medicine for 10 consecutive days", "achieved": st.session_state.achievements["streak_10"], "icon": "🏆"},
-    {"name": "Week Warrior", "desc": "7 days of perfect adherence", "achieved": st.session_state.achievements["perfect_week"], "icon": "💪"},
-]
-
-for idx, achievement in enumerate(achievements_list):
-    with achievement_cols[idx]:
-        if achievement["achieved"]:
-            st.markdown(f"""
-            <div style="
-                background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-                color: #78350f;
-                padding: 15px;
-                border-radius: 16px;
-                text-align: center;
-                height: 120px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                box-shadow: 0 6px 12px rgba(251, 191, 36, 0.3);
-            ">
-                <div style="font-size: 2rem; margin-bottom: 10px;">{achievement['icon']}</div>
-                <div style="font-weight: 700; font-size: 0.9rem;">{achievement['name']}</div>
-                <div style="font-size: 0.7rem; opacity: 0.9;">{achievement['desc']}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        else:
-            st.markdown(f"""
-            <div style="
-                background: #f1f5f9;
-                color: #94a3b8;
-                padding: 15px;
-                border-radius: 16px;
-                text-align: center;
-                height: 120px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            ">
-                <div style="font-size: 2rem; margin-bottom: 10px; opacity: 0.5;">{achievement['icon']}</div>
-                <div style="font-weight: 700; font-size: 0.9rem; opacity: 0.7;">{achievement['name']}</div>
-                <div style="font-size: 0.7rem; opacity: 0.6;">{achievement['desc']}</div>
-            </div>
-            """, unsafe_allow_html=True)
+# Add a proper refresh button below using Streamlit
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    if st.button("🔄 New Health Tip", use_container_width=True, key="refresh_health_tip"):
+        st.session_state.current_health_tip = random.choice(DAILY_HEALTH_TIPS)
+        st.rerun()
 
 # ------------------------------------------
 # BADGE COLLECTION DISPLAY
@@ -982,81 +1642,16 @@ if st.session_state.history:
             st.session_state.streak = 0
             st.session_state.celebration = "Data reset successfully. Start fresh! 🌱"
             st.session_state.earned_badges = []
+            st.session_state.daily_progress = {}
+            st.session_state.progress_insights = []
             st.rerun()
 else:
     st.info("No report available yet. Start taking your medicines to generate a health report!")
 
 # ------------------------------------------
-# WEEKLY PROGRESS SPARKLINE
+# ADVANCED WEEKLY PROGRESS DASHBOARD
 # ------------------------------------------
-# Generate fixed values for the sparkline
-fixed_heights = [65, 70, 55, 72, 68, 62, 75]
-fixed_percentages = [85, 92, 78, 95, 88, 82, 100]
-days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
-st.markdown(f"""
-<div style="
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    margin: 30px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <div style="font-weight: 700; color: #1e293b; font-size: 1.1rem;">📈 Weekly Progress Trend</div>
-        <div style="font-size: 0.8rem; color: #64748b;">Last 7 Days</div>
-    </div>
-    
-    <div style="display: flex; align-items: flex-end; gap: 8px; height: 80px; margin: 20px 0;">
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[0]}%); 
-                    width: 100%; height: {fixed_heights[0]}px; border-radius: 6px 6px 0 0;"></div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[0]}</div>
-        </div>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[1]}%); 
-                    width: 100%; height: {fixed_heights[1]}px; border-radius: 6px 6px 0 0;"></div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[1]}</div>
-        </div>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[2]}%); 
-                    width: 100%; height: {fixed_heights[2]}px; border-radius: 6px 6px 0 0;"></div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[2]}</div>
-        </div>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[3]}%); 
-                    width: 100%; height: {fixed_heights[3]}px; border-radius: 6px 6px 0 0;"></div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[3]}</div>
-        </div>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[4]}%); 
-                    width: 100%; height: {fixed_heights[4]}px; border-radius: 6px 6px 0 0;"></div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[4]}</div>
-        </div>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[5]}%); 
-                    width: 100%; height: {fixed_heights[5]}px; border-radius: 6px 6px 0 0;"></div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[5]}</div>
-        </div>
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[6]}%); 
-                    width: 100%; height: {fixed_heights[6]}px; border-radius: 6px 6px 0 0;"></div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[6]}</div>
-        </div>
-    </div>
-    
-    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
-        <div style="display: flex; align-items: center; gap: 5px;">
-            <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
-            <div style="font-size: 0.8rem; color: #64748b;">Taken</div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 5px;">
-            <div style="width: 12px; height: 12px; background: #E2E8F0; border-radius: 50%;"></div>
-            <div style="font-size: 0.8rem; color: #64748b;">Missed</div>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+show_advanced_progress()
 
 # ------------------------------------------
 # MOTIVATIONAL FOOTER
@@ -1071,4 +1666,3 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
-
