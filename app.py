@@ -321,12 +321,75 @@ st.markdown("""
     .stButton {
         margin-top: 15px;
     }
+    
+    .points-tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: help;
+    }
+    .points-tooltip:hover::after {
+        content: "Points: +10 Add med • +20 Take med • +50 Badge • +100 5-day streak • +250 10-day streak";
+        position: absolute;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1e293b;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        z-index: 100;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # ------------------------------------------
+# MOTIVATIONAL TIPS & BADGES DATA
+# ------------------------------------------
+MOTIVATIONAL_TIPS = [
+    {"tip": "💫 Every dose is a victory! Keep building your health streak!", "color": "#8B5CF6"},
+    {"tip": "🌈 Consistency is the secret ingredient to wellness!", "color": "#06B6D4"},
+    {"tip": "🌟 You're not just taking medicine, you're investing in YOU!", "color": "#10B981"},
+    {"tip": "🌻 Small steps today lead to giant leaps in health tomorrow!", "color": "#F59E0B"},
+    {"tip": "💪 Your commitment to health is truly inspiring!", "color": "#EF4444"},
+    {"tip": "🌱 Nourish your body like you'd nurture a precious garden!", "color": "#84CC16"},
+    {"tip": "⭐️ Every 'I Took It' click is a step toward vitality!", "color": "#6366F1"},
+    {"tip": "🌼 Self-care isn't selfish - it's essential!", "color": "#EC4899"},
+]
+
+SUGGESTIONS = [
+    "💡 Set a daily reminder 5 minutes before medicine time",
+    "💡 Keep medicines visible but out of reach of children",
+    "💡 Drink a full glass of water with your medicine",
+    "💡 Track side effects in the notes section",
+    "💡 Set up a weekly pill organizer for convenience",
+    "💡 Always check expiration dates monthly",
+    "💡 Keep a backup supply for emergencies",
+    "💡 Store medicines away from heat and humidity",
+]
+
+# Additional badge types
+BADGE_TYPES = {
+    "early_bird": {"name": "Early Bird", "icon": "🌅", "color": "#FBBF24"},
+    "night_owl": {"name": "Night Owl", "icon": "🦉", "color": "#7C3AED"},
+    "perfect_week": {"name": "Perfect Week", "icon": "🏆", "color": "#10B981"},
+    "consistency_king": {"name": "Consistency King", "icon": "👑", "color": "#8B5CF6"},
+    "weekend_warrior": {"name": "Weekend Warrior", "icon": "⚔️", "color": "#EF4444"},
+}
+
+# ------------------------------------------
 # SESSION STATE - Enhanced with Gamification
 # ------------------------------------------
+if "motivational_tip" not in st.session_state:
+    st.session_state.motivational_tip = random.choice(MOTIVATIONAL_TIPS)
+
+if "suggestion" not in st.session_state:
+    st.session_state.suggestion = random.choice(SUGGESTIONS)
+
+if "earned_badges" not in st.session_state:
+    st.session_state.earned_badges = []
+
 if "meds" not in st.session_state:
     st.session_state.meds = []
 
@@ -370,7 +433,7 @@ with col1:
     st.markdown(f"""
     <div class="stat-box">
         <div class="stat-value">🏆</div>
-        <div class="stat-value">{st.session_state.points}</div>
+        <div class="stat-value points-tooltip">{st.session_state.points}</div>
         <div class="stat-label">Health Points</div>
     </div>
     """, unsafe_allow_html=True)
@@ -399,6 +462,55 @@ with col3:
     """, unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
+
+# ------------------------------------------
+# MOTIVATIONAL BANNER
+# ------------------------------------------
+st.markdown(f"""
+<div style="
+    background: linear-gradient(135deg, {st.session_state.motivational_tip['color']}15 0%, {st.session_state.motivational_tip['color']}05 100%);
+    border-left: 5px solid {st.session_state.motivational_tip['color']};
+    padding: 20px;
+    border-radius: 16px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1e293b;
+">
+    ✨ {st.session_state.motivational_tip['tip']}
+</div>
+""", unsafe_allow_html=True)
+
+# ------------------------------------------
+# SUGGESTION & BADGE CAROUSEL
+# ------------------------------------------
+col1, col2 = st.columns([2, 1])
+
+with col1:
+    st.markdown(f"""
+    <div style="
+        background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%);
+        padding: 18px;
+        border-radius: 16px;
+        border: 2px solid #BAE6FD;
+        margin-bottom: 20px;
+    ">
+        <div style="display: flex; align-items: center; gap: 12px; color: #0369A1;">
+            <span style="font-size: 1.5rem;">💡</span>
+            <div>
+                <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 5px;">Smart Suggestion</div>
+                <div style="font-size: 0.95rem;">{st.session_state.suggestion}</div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    if st.button("🔄 New Tip", use_container_width=True, key="new_tip_btn"):
+        st.session_state.motivational_tip = random.choice(MOTIVATIONAL_TIPS)
+        st.session_state.suggestion = random.choice(SUGGESTIONS)
+        st.rerun()
 
 # ------------------------------------------
 # ADD MEDICINE SECTION
@@ -543,6 +655,16 @@ with left:
                             points_earned = 20
                             st.session_state.points += points_earned
                             
+                            # Random chance to earn a badge (30% chance)
+                            if random.random() > 0.7 and len(st.session_state.earned_badges) < len(BADGE_TYPES):
+                                available_badges = [b for b in BADGE_TYPES.keys() if b not in st.session_state.earned_badges]
+                                if available_badges:
+                                    new_badge = random.choice(available_badges)
+                                    st.session_state.earned_badges.append(new_badge)
+                                    badge_info = BADGE_TYPES[new_badge]
+                                    st.session_state.celebration = f"🎖️ New Badge Earned: {badge_info['name']} {badge_info['icon']}! +50 points"
+                                    st.session_state.points += 50
+                            
                             # Update streak
                             today_date = datetime.date.today()
                             if st.session_state.last_taken_date != today_date:
@@ -674,6 +796,28 @@ with right:
     </div>
     """, unsafe_allow_html=True)
     
+    # ------------------------------------------
+    # HEALTH TIPS SIDEBAR
+    # ------------------------------------------
+    st.markdown("""
+    <div style="
+        background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 25px;
+        border: 2px solid #FBBF24;
+    ">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+            <span style="font-size: 1.5rem;">🌿</span>
+            <div style="font-weight: 700; color: #92400E;">Daily Health Tip</div>
+        </div>
+        <div style="color: #78350F; font-size: 0.9rem; line-height: 1.5;">
+            Staying hydrated helps your body process medications more effectively. 
+            Aim for 8 glasses of water daily!
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ------------------------------------------
@@ -733,6 +877,78 @@ for idx, achievement in enumerate(achievements_list):
             """, unsafe_allow_html=True)
 
 # ------------------------------------------
+# BADGE COLLECTION DISPLAY
+# ------------------------------------------
+st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
+st.markdown('<div class="section-title">🎖️ Your Badge Collection</div>', unsafe_allow_html=True)
+
+# Display badges based on earned badges in session state
+badge_cols = st.columns(5)
+badge_keys = list(BADGE_TYPES.keys())
+
+for idx in range(5):
+    with badge_cols[idx]:
+        if idx < len(badge_keys):
+            badge_key = badge_keys[idx]
+            badge_info = BADGE_TYPES[badge_key]
+            is_earned = badge_key in st.session_state.earned_badges
+            
+            if is_earned:
+                st.markdown(f"""
+                <div style="
+                    background: linear-gradient(135deg, {badge_info['color']}20 0%, {badge_info['color']}10 100%);
+                    border: 2px solid {badge_info['color']};
+                    padding: 20px;
+                    border-radius: 20px;
+                    text-align: center;
+                    height: 140px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+                ">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">{badge_info['icon']}</div>
+                    <div style="font-weight: 700; color: #1e293b; font-size: 0.9rem;">{badge_info['name']}</div>
+                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">Earned Today!</div>
+                </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.markdown(f"""
+                <div style="
+                    background: #F8FAFC;
+                    border: 2px dashed #CBD5E1;
+                    padding: 20px;
+                    border-radius: 20px;
+                    text-align: center;
+                    height: 140px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0.6;
+                ">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px; opacity: 0.4;">{badge_info['icon']}</div>
+                    <div style="font-weight: 700; color: #94A3B8; font-size: 0.9rem;">{badge_info['name']}</div>
+                    <div style="font-size: 0.7rem; color: #CBD5E1; margin-top: 5px;">Locked 🔒</div>
+                </div>
+                """, unsafe_allow_html=True)
+
+# Add badge refresh button
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    if st.button("🎲 Randomize Badge Demo", use_container_width=True):
+        # Randomly toggle some badges for demo
+        for badge_key in BADGE_TYPES.keys():
+            if random.random() > 0.5:
+                if badge_key not in st.session_state.earned_badges:
+                    st.session_state.earned_badges.append(badge_key)
+            else:
+                if badge_key in st.session_state.earned_badges:
+                    st.session_state.earned_badges.remove(badge_key)
+        st.rerun()
+
+# ------------------------------------------
 # DOWNLOAD REPORT
 # ------------------------------------------
 st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
@@ -765,9 +981,82 @@ if st.session_state.history:
             st.session_state.points = 0
             st.session_state.streak = 0
             st.session_state.celebration = "Data reset successfully. Start fresh! 🌱"
+            st.session_state.earned_badges = []
             st.rerun()
 else:
     st.info("No report available yet. Start taking your medicines to generate a health report!")
+
+# ------------------------------------------
+# WEEKLY PROGRESS SPARKLINE
+# ------------------------------------------
+# Generate fixed values for the sparkline
+fixed_heights = [65, 70, 55, 72, 68, 62, 75]
+fixed_percentages = [85, 92, 78, 95, 88, 82, 100]
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+st.markdown(f"""
+<div style="
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin: 30px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <div style="font-weight: 700; color: #1e293b; font-size: 1.1rem;">📈 Weekly Progress Trend</div>
+        <div style="font-size: 0.8rem; color: #64748b;">Last 7 Days</div>
+    </div>
+    
+    <div style="display: flex; align-items: flex-end; gap: 8px; height: 80px; margin: 20px 0;">
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[0]}%); 
+                    width: 100%; height: {fixed_heights[0]}px; border-radius: 6px 6px 0 0;"></div>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[0]}</div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[1]}%); 
+                    width: 100%; height: {fixed_heights[1]}px; border-radius: 6px 6px 0 0;"></div>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[1]}</div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[2]}%); 
+                    width: 100%; height: {fixed_heights[2]}px; border-radius: 6px 6px 0 0;"></div>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[2]}</div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[3]}%); 
+                    width: 100%; height: {fixed_heights[3]}px; border-radius: 6px 6px 0 0;"></div>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[3]}</div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[4]}%); 
+                    width: 100%; height: {fixed_heights[4]}px; border-radius: 6px 6px 0 0;"></div>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[4]}</div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[5]}%); 
+                    width: 100%; height: {fixed_heights[5]}px; border-radius: 6px 6px 0 0;"></div>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[5]}</div>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <div style="background: linear-gradient(to top, #10B981 0%, #10B981 {fixed_percentages[6]}%); 
+                    width: 100%; height: {fixed_heights[6]}px; border-radius: 6px 6px 0 0;"></div>
+            <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">{days[6]}</div>
+        </div>
+    </div>
+    
+    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">
+        <div style="display: flex; align-items: center; gap: 5px;">
+            <div style="width: 12px; height: 12px; background: #10B981; border-radius: 50%;"></div>
+            <div style="font-size: 0.8rem; color: #64748b;">Taken</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 5px;">
+            <div style="width: 12px; height: 12px; background: #E2E8F0; border-radius: 50%;"></div>
+            <div style="font-size: 0.8rem; color: #64748b;">Missed</div>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # ------------------------------------------
 # MOTIVATIONAL FOOTER
@@ -782,3 +1071,4 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
