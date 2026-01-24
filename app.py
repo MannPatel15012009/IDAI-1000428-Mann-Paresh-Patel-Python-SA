@@ -1388,7 +1388,7 @@ with left:
     else:
         st.markdown("""
         <div style="text-align: center; padding: 50px; background: white; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-            <h3 style="color: #64748b;">No medications scheduled for today</h3>
+            <h3 style="color: black;">No medications scheduled for today</h3>
             <p>Add your first medicine above to start tracking! 🚀</p>
         </div>
         """, unsafe_allow_html=True)
