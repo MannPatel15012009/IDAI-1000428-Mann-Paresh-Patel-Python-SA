@@ -81,26 +81,28 @@ Internet connection (for initial package installation)
 Clone the repository:
 
 bash
-''' git clone https://github.com/MannPatel15012009/IDAI-1000428-Mann-Paresh-Patel-Python-SA.git
+```
+ git clone https://github.com/MannPatel15012009/IDAI-1000428-Mann-Paresh-Patel-Python-SA.git
 cd IDAI-1000428-Mann-Paresh-Patel-Python-SA
-'''
+```
 #### Install required dependencies:
 
 bash
-' pip install streamlit pandas'
+`pip install streamlit pandas`
 Run the application:
 
 bash
-' streamlit run app.py'
+`streamlit run app.py`
 #### Access the application:
 Open your web browser and navigate to http://localhost:8501
 
 ### Cloud Deployment (Streamlit Cloud):
 Create a requirements.txt file with the following content:
 
-'''streamlit
+```
+streamlit
 pandas
-'''
+```
 Upload your project to GitHub 
 
 Go to Streamlit Cloud (streamlit.io/cloud)
@@ -239,14 +241,15 @@ Python: Backend logic and gamification system
 
 ### Project Structure
 text
-'''IDAI-1000428-Mann-Paresh-Patel-Python-SA/
+```
+IDAI-1000428-Mann-Paresh-Patel-Python-SA/
 │
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── README.md          # Project documentation
 ├── Interactive Links/ # Deployment and access links
 └── assets/            # Images and resources
-'''
+```
 ### Key Components
 Session Management: Persistent user state across sessions
 
@@ -262,11 +265,12 @@ Responsive Design: Mobile-friendly interface
 Changing Visual Themes
 Edit the CSS variables in the custom styles section:
 
-'''css
+css
+```
 .main-header {
     background: linear-gradient(90deg, #NEW_COLOR_1 0%, #NEW_COLOR_2 100%);
 }
-'''
+```
 ### Adding New Features
 New Badge Types: Extend the BADGE_TYPES dictionary
 
