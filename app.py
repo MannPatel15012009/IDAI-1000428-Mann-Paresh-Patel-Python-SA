@@ -877,7 +877,7 @@ def show_advanced_progress():
                     bar_color = "#ef4444"
                 
                 st.markdown(f"""
-                <div style="background:blue; border-radius: 10px; height: 24px; overflow: hidden; margin: 5px 0;">
+                <div style="background:black; border-radius: 10px; height: 24px; overflow: hidden; margin: 5px 0;">
                     <div style="background: {bar_color}; width: {progress*100}%; height: 100%; 
                             border-radius: 10px; display: flex; align-items: center; padding-left: 10px;">
                         <span style="color: white; font-weight: bold; font-size: 0.8rem;">
@@ -964,7 +964,7 @@ def show_advanced_progress():
         for insight in st.session_state.progress_insights:
             st.markdown(f"""
             <div style="
-                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+                background: blue;
                 border-left: 4px solid #0ea5e9;
                 padding: 15px;
                 border-radius: 8px;
