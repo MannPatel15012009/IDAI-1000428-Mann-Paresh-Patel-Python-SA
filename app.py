@@ -1559,6 +1559,7 @@ for idx in range(5):
                 <div style="
                     background: linear-gradient(135deg, {badge_info['color']}20 0%, {badge_info['color']}10 100%);
                     border: 2px solid {badge_info['color']};
+                    color:white;
                     padding: 20px;
                     border-radius: 20px;
                     text-align: center;
