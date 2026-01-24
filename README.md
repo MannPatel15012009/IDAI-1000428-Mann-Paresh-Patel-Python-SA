@@ -119,56 +119,13 @@ Click "Deploy" - Streamlit Cloud will handle the rest
 
 ## 🌐 Live Web App Link
 The deployed application is accessible at: 
+[Live Web App Link](https://idai-1000428-mann-paresh-patel-python-sa-3phcftgfqv79lotmp2vbq.streamlit.app/)
 
 ## 📁 Project Development Stages
 ### Stage 1: Sketching & Planning
 Created rough digital sketches to model the app 
 <img width="1279" height="830" alt="Screenshot 2026-01-24 175755" src="https://github.com/user-attachments/assets/d16be106-1d54-4e60-9754-eb8019a9dd6e" />
 <img width="1412" height="703" alt="Screenshot 2026-01-24 175732" src="https://github.com/user-attachments/assets/5bf7ddb1-b726-4fb8-81b6-f0fd017ec23c" />
-
-### Stage 2: Python Logic Implementation
-Developed core Python logic including:
-
-Medication scheduling algorithms
-
-Gamification scoring system
-
-Data persistence mechanisms
-
-Export functionality
-
-### Stage 3: Streamlit Application Development
-Built interactive Streamlit application with:
-
-Colorful animations and visual effects
-
-Turtle graphics for engaging UI elements
-
-User tips and motivational content
-
-Badge and achievement systems
-
-### Stage 4: Testing & User Feedback
-Implemented feedback mechanisms where users can:
-
-Report bugs or issues through the interface
-
-Suggest new features or improvements
-
-Rate their experience with the application
-
-View other users' feedback in a dedicated section
-
-### Stage 5: Documentation & Deployment
-Comprehensive documentation including:
-
-README file with project overview
-
-Deployment instructions
-
-User guides and tutorials
-
-Technical specifications
 
 ## 🏆 Gamification System Details
 ### Points System
