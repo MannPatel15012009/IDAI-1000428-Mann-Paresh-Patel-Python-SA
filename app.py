@@ -1675,3 +1675,28 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
+import datetime
+
+st.markdown("### 💬 Feedback")
+
+with st.form("feedback_form"):
+    name = st.text_input("Name (optional)")
+    feedback = st.text_area("Your Feedback *", placeholder="Tell us what you think...")
+
+    submitted = st.form_submit_button("Submit Feedback")
+
+    if submitted:
+        if feedback.strip() == "":
+            st.error("Feedback is required.")
+        else:
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            with open("feedback.txt", "a", encoding="utf-8") as f:
+                f.write(f"Time: {timestamp}\n")
+                f.write(f"Name: {name if name else 'Anonymous'}\n")
+                f.write(f"Feedback: {feedback}\n")
+                f.write("-" * 40 + "\n")
+
+            st.success("Thank you for your feedback! 🙌")
+
