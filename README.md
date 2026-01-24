@@ -5,6 +5,9 @@ Build ShopImpact Conscious Shopping Dashboard using Python | Design MedTimer Dai
 ## 📋 Project Overview
 MedTimer Pro is an interactive, gamified medication tracking application designed to help users manage their daily medication schedules effectively. Built using Python and Streamlit, this application transforms routine medication management into an engaging health journey with motivational features like points systems, achievement badges, and streak counters. The project addresses the common challenge of medication non-adherence by making the tracking process visual, rewarding, and interactive. The application features a colorful, animated interface with custom CSS styling, turtle graphics animations, and real-time progress tracking to encourage consistent medication use and promote better health outcomes.
 
+## Problem Statement
+A majority of people tend to forget their medicine doses,due to workload and busy routine.They forget to take their medicines,not because they do not want to,but unintentionally.However,missing them can be a big problem! This app is designed to help them as an assistant so that they do not passive miss their medicine doses.
+
 ## ✨ Key Features
 ### 🎮 Gamification System
 Health Points: Earn points for adding and taking medications
