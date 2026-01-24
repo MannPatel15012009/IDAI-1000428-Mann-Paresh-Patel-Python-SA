@@ -164,7 +164,7 @@ Modifying Points System
 Adjust the points values in the "I Took It!" button logic:
 
 python
-# Current: +20 points for taking medicine
+ #Current: +20 points for taking medicine
 points_earned = 20
 st.session_state.points += points_earned
 🤝 Contributing
