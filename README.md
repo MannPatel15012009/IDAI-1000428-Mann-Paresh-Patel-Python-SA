@@ -203,7 +203,7 @@ IDAI-1000428-Mann-Paresh-Patel-Python-SA/
 ├── requirements.txt    # Python dependencies
 ├── README.md          # Project documentation
 ├── Interactive Links/ # Deployment and access links
-└── assets/            # Images and resources
+
 ```
 ### Key Components
 Session Management: Persistent user state across sessions
