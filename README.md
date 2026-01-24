@@ -1,4 +1,4 @@
-#💊 MedTimer Pro - Gamified Medication Tracker
+# 💊 MedTimer Pro - Gamified Medication Tracker
 Design and Deploy Interactive Python Applications for Social Good
 Build ShopImpact Conscious Shopping Dashboard using Python | Design MedTimer Daily Medicine Companion using Python
 
