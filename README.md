@@ -277,15 +277,6 @@ Usage analytics (with user consent)
 
 Note: This tool is for tracking purposes only. Always consult with healthcare professionals regarding medication management.
 
-## 🙏 Acknowledgments
-Streamlit team for the amazing framework
-
-Health professionals for medication management insights
-
-Open source community for inspiration and tools
-
-Educators and mentors for guidance throughout the project
-
 
 
 
