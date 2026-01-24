@@ -2,11 +2,11 @@
 Design and Deploy Interactive Python Applications for Social Good
 Build ShopImpact Conscious Shopping Dashboard using Python | Design MedTimer Daily Medicine Companion using Python
 
-##📋 Project Overview
+## 📋 Project Overview
 MedTimer Pro is an interactive, gamified medication tracking application designed to help users manage their daily medication schedules effectively. Built using Python and Streamlit, this application transforms routine medication management into an engaging health journey with motivational features like points systems, achievement badges, and streak counters. The project addresses the common challenge of medication non-adherence by making the tracking process visual, rewarding, and interactive. The application features a colorful, animated interface with custom CSS styling, turtle graphics animations, and real-time progress tracking to encourage consistent medication use and promote better health outcomes.
 
-##✨ Key Features
-###🎮 Gamification System
+## ✨ Key Features
+### 🎮 Gamification System
 Health Points: Earn points for adding and taking medications
 
 Achievement Badges: Unlock special badges for consistency
@@ -15,7 +15,7 @@ Day Streaks: Build and maintain your medication streak
 
 Level Progression: Level up as you accumulate points
 
-###📊 Smart Tracking
+### 📊 Smart Tracking
 Daily Medication Dashboard: Visual cards with status indicators
 
 Progress Analytics: Real-time progress tracking with visualizations
@@ -24,7 +24,7 @@ Weekly Trends: Sparkline charts showing adherence patterns
 
 Exportable Reports: Download CSV reports of medication history
 
-###💡 Motivation & Support
+### 💡 Motivation & Support
 Dynamic Tips: Rotating motivational messages
 
 Celebration Animations: Visual feedback for achievements
@@ -33,7 +33,7 @@ Health Tips: Daily wellness advice
 
 Smart Suggestions: Practical medication management tips
 
-###🎨 Modern UI
+### 🎨 Modern UI
 Beautiful Gradient Design: Clean, card-based interface
 
 Responsive Layout: Works on desktop and mobile
@@ -42,7 +42,7 @@ Interactive Elements: Hover effects and animations
 
 Status Visualizations: Color-coded badges (Taken/Missed/Upcoming)
 
-##🔧 Integration Details
+## 🔧 Integration Details
 The application integrates multiple Python libraries and custom modules to create a seamless user experience:
 
 Streamlit: Serves as the main web framework for building the interactive dashboard
@@ -57,7 +57,7 @@ Custom CSS/HTML: Provides enhanced styling with gradients, animations, and respo
 
 Turtle Graphics: Used for visual animations and interactive elements
 
-###Key integration points include:
+### Key integration points include:
 
 Session state management for persistent user data across interactions
 
@@ -69,22 +69,22 @@ CSV export system for data portability and record-keeping
 
 Responsive design that adapts to different screen sizes and devices
 
-##🚀 Deployment Instructions
-###Prerequisites:
+## 🚀 Deployment Instructions
+### Prerequisites:
 Python 3.8 or higher installed
 
 pip package manager
 
 Internet connection (for initial package installation)
 
-###Local Deployment:
+### Local Deployment:
 Clone the repository:
 
 bash
 '''git clone https://github.com/MannPatel15012009/IDAI-1000428-Mann-Paresh-Patel-Python-SA.git
 cd IDAI-1000428-Mann-Paresh-Patel-Python-SA
 '''
-####Install required dependencies:
+#### Install required dependencies:
 
 bash
 'pip install streamlit pandas'
@@ -92,10 +92,10 @@ Run the application:
 
 bash
 'streamlit run app.py'
-####Access the application:
+#### Access the application:
 Open your web browser and navigate to http://localhost:8501
 
-###Cloud Deployment (Streamlit Cloud):
+### Cloud Deployment (Streamlit Cloud):
 Create a requirements.txt file with the following content:
 
 '''txt
@@ -116,18 +116,18 @@ Click "Deploy" - Streamlit Cloud will handle the rest
 
 
 
-##🌐 Live Web App Link
+## 🌐 Live Web App Link
 The deployed application is accessible at: 
 
-##📁 Project Development Stages
-###Stage 1: Sketching & Planning
+## 📁 Project Development Stages
+### Stage 1: Sketching & Planning
 Created comprehensive wireframes and mind-maps to identify:
 
 Must-have features: Medication tracking, progress visualization, gamification elements
 
 Nice-to-have features: Advanced analytics, social features, reminder integrations
 
-###Stage 2: Python Logic Implementation
+### Stage 2: Python Logic Implementation
 Developed core Python logic including:
 
 Medication scheduling algorithms
@@ -138,7 +138,7 @@ Data persistence mechanisms
 
 Export functionality
 
-###Stage 3: Streamlit Application Development
+### Stage 3: Streamlit Application Development
 Built interactive Streamlit application with:
 
 Colorful animations and visual effects
@@ -149,7 +149,7 @@ User tips and motivational content
 
 Badge and achievement systems
 
-###Stage 4: Testing & User Feedback
+### Stage 4: Testing & User Feedback
 Implemented feedback mechanisms where users can:
 
 Report bugs or issues through the interface
@@ -160,7 +160,7 @@ Rate their experience with the application
 
 View other users' feedback in a dedicated section
 
-###Stage 5: Documentation & Deployment
+### Stage 5: Documentation & Deployment
 Comprehensive documentation including:
 
 README file with project overview
@@ -171,15 +171,15 @@ User guides and tutorials
 
 Technical specifications
 
-##🏆 Gamification System Details
-###Points System
-####Action	Points
+## 🏆 Gamification System Details
+### Points System
+#### Action	Points
 Add a new medicine	+10
 Take a medicine on time	+20
 Earn a new badge	+50
 Achieve 5-day streak	+100
 Achieve 10-day streak	+250
-####Badges & Achievements
+#### Badges & Achievements
 🌅 Early Bird: Take morning medications consistently
 
 🦉 Night Owl: Take evening medications consistently
@@ -190,7 +190,7 @@ Achieve 10-day streak	+250
 
 ⚔️ Weekend Warrior: Maintain schedule on weekends
 
-###Level System
+### Level System
 Level 1: 0-99 points (Beginner)
 
 Level 2: 100-199 points (Intermediate)
@@ -199,8 +199,8 @@ Level 3: 200-299 points (Advanced)
 
 Level 4: 300+ points (Health Hero)
 
-###📊 User Tips & Best Practices
-####Daily Usage Tips
+### 📊 User Tips & Best Practices
+#### Daily Usage Tips
 Set Daily Reminders: Use the app consistently at the same time each day
 
 Track Side Effects: Use the notes feature to record any medication reactions
@@ -211,7 +211,7 @@ Weekly Review: Check your progress report every Sunday
 
 Backup Plan: Always keep emergency doses available
 
-####Medication Management
+#### Medication Management
 💡 Set a daily reminder 5 minutes before medicine time
 
 💡 Keep medicines visible but out of reach of children
@@ -228,8 +228,8 @@ Backup Plan: Always keep emergency doses available
 
 💡 Store medicines away from heat and humidity
 
-##🛠️ Technical Architecture
-###Built With
+## 🛠️ Technical Architecture
+### Built With
 Streamlit: Web application framework
 
 Pandas: Data manipulation and CSV export
@@ -238,16 +238,17 @@ HTML/CSS: Custom styling and animations
 
 Python: Backend logic and gamification system
 
-###Project Structure
+### Project Structure
 text
-IDAI-1000428-Mann-Paresh-Patel-Python-SA/
+'''IDAI-1000428-Mann-Paresh-Patel-Python-SA/
 │
 ├── app.py              # Main application file
 ├── requirements.txt    # Python dependencies
 ├── README.md          # Project documentation
 ├── Interactive Links/ # Deployment and access links
 └── assets/            # Images and resources
-###Key Components
+'''
+### Key Components
 Session Management: Persistent user state across sessions
 
 Gamification Engine: Points, badges, and streak calculations
@@ -258,7 +259,7 @@ Data Export: CSV generation and download functionality
 
 Responsive Design: Mobile-friendly interface
 
-##🔧 Customization Guide
+## 🔧 Customization Guide
 Changing Visual Themes
 Edit the CSS variables in the custom styles section:
 
@@ -267,14 +268,14 @@ Edit the CSS variables in the custom styles section:
     background: linear-gradient(90deg, #NEW_COLOR_1 0%, #NEW_COLOR_2 100%);
 }
 '''
-###Adding New Features
+### Adding New Features
 New Badge Types: Extend the BADGE_TYPES dictionary
 
 Additional Points: Modify points values in the gamification logic
 
 New UI Components: Add custom Streamlit elements with matching CSS
 
-###Extending Functionality
+### Extending Functionality
 Connect to calendar APIs for automated reminders
 
 Integrate with health tracking devices
@@ -283,8 +284,8 @@ Add social features for community support
 
 Implement prescription management system
 
-##🤝 Testing & Feedback
-###Testing Methodology
+## 🤝 Testing & Feedback
+### Testing Methodology
 Unit Testing: Individual component functionality
 
 Integration Testing: End-to-end user workflows
@@ -293,7 +294,7 @@ User Acceptance Testing: Real-world usage scenarios
 
 Performance Testing: Load and response time evaluation
 
-###Feedback Collection
+### Feedback Collection
 The application includes built-in mechanisms for:
 
 User rating systems
