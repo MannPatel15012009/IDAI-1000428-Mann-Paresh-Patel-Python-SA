@@ -1088,6 +1088,7 @@ with col1:
     <div style="
         background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%);
         padding: 18px;
+        color:white;
         border-radius: 16px;
         border: 2px solid #BAE6FD;
         margin-bottom: 20px;
