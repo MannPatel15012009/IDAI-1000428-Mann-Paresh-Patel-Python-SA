@@ -6,7 +6,7 @@ Build ShopImpact Conscious Shopping Dashboard using Python | Design MedTimer Dai
 MedTimer Pro is an interactive, gamified medication tracking application designed to help users manage their daily medication schedules effectively. Built using Python and Streamlit, this application transforms routine medication management into an engaging health journey with motivational features like points systems, achievement badges, and streak counters. The project addresses the common challenge of medication non-adherence by making the tracking process visual, rewarding, and interactive. The application features a colorful, animated interface with custom CSS styling, turtle graphics animations, and real-time progress tracking to encourage consistent medication use and promote better health outcomes.
 
 ## Problem Statement
-A majority of people tend to forget their medicine doses,due to workload and busy routine.They forget to take their medicines,not because they do not want to,but unintentionally.However,missing them can be a big problem! This app is designed to help them as an assistant so that they do not passive miss their medicine doses.
+A lot of people often miss their medication doses because of work pressure. This usually happens unintentionally. However, not following prescribed medication schedules can have serious health consequences. This application has been developed to help users stick to their medication routines and reduce the chances of skipping doses.
 
 ## ✨ Key Features
 ### 🎮 Gamification System
@@ -245,12 +245,11 @@ Add social features for community support
 
 Implement prescription management system
 ## Visuals of the App
-<img width="1920" height="1080" alt="Screenshot (137)" src="https://github.com/user-attachments/assets/7e8081d8-7ed3-4236-864b-abc1db651c94" />
-<img width="1920" height="1080" alt="Screenshot (138)" src="https://github.com/user-attachments/assets/6abeda41-5c97-43e2-af80-f2e0efb6d227" />
-<img width="1920" height="1080" alt="Screenshot (139)" src="https://github.com/user-attachments/assets/e162afc1-0380-4d00-addf-3788b93e449f" />
-<img width="1920" height="1080" alt="Screenshot (140)" src="https://github.com/user-attachments/assets/5c1a1701-4951-42de-aa5e-afa1b43eaf80" />
-<img width="1920" height="1080" alt="Screenshot (142)" src="https://github.com/user-attachments/assets/00ef2f97-234f-4919-b47b-df2404252e0b" />
-
+<img width="1920" height="884" alt="Screenshot (142)" src="https://github.com/user-attachments/assets/603d08d9-4588-4582-979f-b092936b32cb" />
+<img width="1920" height="863" alt="Screenshot (137)" src="https://github.com/user-attachments/assets/751459ce-5c5e-407c-a8cc-1d475738dd0c" />
+<img width="1920" height="904" alt="Screenshot (138)" src="https://github.com/user-attachments/assets/693a1e5d-8d21-4a00-b716-054ff29b37a9" />
+<img width="1920" height="902" alt="Screenshot (139)" src="https://github.com/user-attachments/assets/ad73fbd9-06a4-4fec-828f-edd5317ba063" />
+<img width="1920" height="912" alt="Screenshot (140)" src="https://github.com/user-attachments/assets/27ba30f6-6614-4dcc-8fb2-250a819dac0c" />
 
 ## 🤝 Testing & Feedback
 ### Testing Methodology
