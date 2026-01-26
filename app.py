@@ -743,7 +743,7 @@ def track_daily_progress():
     return progress
 
 def generate_weekly_simulation():
-    """Generate simulated past week data"""
+    """Generate weekly data with correct percentage calculations"""
     today = datetime.date.today()
     days_back = 6
     
@@ -753,42 +753,50 @@ def generate_weekly_simulation():
         day_date = today - datetime.timedelta(days=i)
         day_str = day_date.isoformat()
         
-        if i == 0:
-            if day_str in st.session_state.daily_progress:
-                data = st.session_state.daily_progress[day_str]
-                simulated_data.append({
-                    "date": day_date,
-                    "progress": data["progress"],
-                    "taken": data["taken"],
-                    "total": data["total"],
-                    "is_actual": True
-                })
-            else:
-                simulated_data.append({
-                    "date": day_date,
-                    "progress": 0.0,
-                    "taken": 0,
-                    "total": 0,
-                    "is_actual": False
-                })
+        # Check if we have actual data for this day
+        if day_str in st.session_state.daily_progress:
+            data = st.session_state.daily_progress[day_str]
+            # Calculate actual progress correctly
+            actual_progress = data["progress"]
+            simulated_data.append({
+                "date": day_date,
+                "progress": actual_progress,
+                "taken": data["taken"],
+                "total": data["total"],
+                "is_actual": True
+            })
         else:
+            # For days without actual data, create realistic simulation
+            # Base simulation on user's current streak and points
             base_score = 0.7
             if st.session_state.streak > 3:
                 base_score += 0.15
             if st.session_state.points > 100:
                 base_score += 0.1
             
-            final_score = max(0.4, min(0.98, base_score + random.uniform(-0.1, 0.1)))
+            # Add some randomness but keep it reasonable
+            final_score = max(0.3, min(1.0, base_score + random.uniform(-0.2, 0.2)))
             
+            # Adjust for weekend if needed
             weekday = day_date.weekday()
-            if weekday >= 5:
-                final_score = max(0.3, final_score - 0.1)
+            if weekday >= 5:  # Weekend
+                final_score = max(0.3, final_score - 0.15)
+            
+            # Ensure integer doses
+            total_doses = random.randint(1, 5)
+            taken_doses = int(round(final_score * total_doses))
+            
+            # Ensure taken doesn't exceed total
+            taken_doses = min(taken_doses, total_doses)
+            
+            # Recalculate actual progress based on doses
+            actual_progress = taken_doses / total_doses if total_doses > 0 else 0
             
             simulated_data.append({
                 "date": day_date,
-                "progress": final_score,
-                "taken": random.randint(2, 4) if final_score > 0.5 else random.randint(0, 2),
-                "total": random.randint(3, 5),
+                "progress": actual_progress,
+                "taken": taken_doses,
+                "total": total_doses,
                 "is_actual": False
             })
     
@@ -834,20 +842,19 @@ def show_advanced_progress():
     
     st.markdown("""
     <div style="
-        background: dark blue;
+        background: white;
         padding: 25px;
         border-radius: 20px;
         margin: 30px 0;
         box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     ">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <div style="font-weight: 700; color: white;font-size: 1.1rem;">📈 Weekly Progress Dashboard</div>
+            <div style="font-weight: 700; color: #1e293b; font-size: 1.1rem;">📈 Weekly Progress Dashboard</div>
             <div style="font-size: 0.8rem; color: #64748b;">Live Tracking • Updated Just Now</div>
         </div>
     """, unsafe_allow_html=True)
     
     tab1, tab2, tab3 = st.tabs(["📊 Daily Progress", "📈 Trends & Analytics", "💡 Personalized Insights"])
-    
     with tab1:
         st.subheader("This Week at a Glance")
         days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -856,7 +863,12 @@ def show_advanced_progress():
         
         for i, day_data in enumerate(weekly_data):
             day_name = days[(current_weekday - (len(weekly_data) - 1 - i)) % 7]
-            progress = day_data["progress"]
+            
+            # Calculate progress from actual doses
+            if day_data["total"] > 0:
+                progress = day_data["taken"] / day_data["total"]
+            else:
+                progress = 0
             
             col1, col2, col3, col4 = st.columns([1, 4, 2, 1])
             
@@ -876,8 +888,9 @@ def show_advanced_progress():
                 else:
                     bar_color = "#ef4444"
                 
+                # FIX: progress is 0-1, multiply by 100 for percentage
                 st.markdown(f"""
-                <div style="background:black; border-radius: 10px; height: 24px; overflow: hidden; margin: 5px 0;">
+                <div style="background: #f1f5f9; border-radius: 10px; height: 24px; overflow: hidden; margin: 5px 0;">
                     <div style="background: {bar_color}; width: {progress*100}%; height: 100%; 
                             border-radius: 10px; display: flex; align-items: center; padding-left: 10px;">
                         <span style="color: white; font-weight: bold; font-size: 0.8rem;">
@@ -892,25 +905,28 @@ def show_advanced_progress():
                     st.markdown(f"**{day_data['taken']}/{day_data['total']} doses**")
             
             with col4:
-                if i == len(weekly_data) - 1:
+                if i == len(weekly_data) - 1:  # Today
                     if progress == 1.0:
                         st.success("✅")
                     elif progress > 0:
                         st.warning("⏳")
                     else:
                         st.error("❌")
-                else:
+                else:  # Past days
                     if progress >= 0.8:
                         st.success("✅")
                     elif progress >= 0.6:
                         st.warning("⚠️")
                     elif progress > 0:
                         st.error("❌")
+                    else:
+                        st.error("❌")
         
         st.markdown("---")
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
+            # Calculate average from actual progress
             avg_progress = sum(d["progress"] for d in weekly_data) / len(weekly_data)
             st.metric("📊 Weekly Avg", f"{avg_progress*100:.0f}%")
         
@@ -920,12 +936,13 @@ def show_advanced_progress():
             st.metric("🏆 Best Day", f"{best_day_name} ({best_day['progress']*100:.0f}%)")
         
         with col3:
-            consistency = min(100, st.session_state.streak * 12 + int(avg_progress * 40))
+            consistency = min(100, st.session_state.streak * 15 + int(avg_progress * 30))
             st.metric("🔥 Consistency", f"{consistency}/100")
         
         with col4:
-            monthly_estimate = int(avg_progress * 120)
-            st.metric("📅 Monthly Est", f"{monthly_estimate}/120 doses")
+            total_taken = sum(d["taken"] for d in weekly_data)
+            total_scheduled = sum(d["total"] for d in weekly_data)
+            st.metric("💊 Total Doses", f"{total_taken}/{total_scheduled}")
     
     with tab2:
         st.subheader("Adherence Trends & Patterns")
@@ -964,7 +981,7 @@ def show_advanced_progress():
         for insight in st.session_state.progress_insights:
             st.markdown(f"""
             <div style="
-                background: blue;
+                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
                 border-left: 4px solid #0ea5e9;
                 padding: 15px;
                 border-radius: 8px;
@@ -1088,7 +1105,6 @@ with col1:
     <div style="
         background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%);
         padding: 18px;
-        color:white;
         border-radius: 16px;
         border: 2px solid #BAE6FD;
         margin-bottom: 20px;
@@ -1388,8 +1404,8 @@ with left:
                             st.rerun()
     else:
         st.markdown("""
-        <div style="text-align: center; padding: 50px; background: black; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-            <h3 style="color: #FFFFFF;">No medications scheduled for today</h3>
+        <div style="text-align: center; padding: 50px; background: white; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <h3 style="color: Black;">No medications scheduled for today</h3>
             <p>Add your first medicine above to start tracking! 🚀</p>
         </div>
         """, unsafe_allow_html=True)
@@ -1556,31 +1572,23 @@ for idx in range(5):
             
             if is_earned:
                 st.markdown(f"""
-               <div style="
-    background: linear-gradient(135deg, {badge_info['color']}20 0%, {badge_info['color']}10 100%);
-    border: 2px solid {badge_info['color']};
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
-    color: white;
-">
-    <div style="font-size: 2.5rem; margin-bottom: 10px;">
-        {badge_info['icon']}
-    </div>
-    <div style="font-weight: 700; font-size: 0.9rem;">
-        {badge_info['name']}
-    </div>
-    <div style="font-size: 0.7rem; margin-top: 5px; opacity: 0.85;">
-        Earned Today!
-    </div>
-</div>
-
+                <div style="
+                    background: linear-gradient(135deg, {badge_info['color']}20 0%, {badge_info['color']}10 100%);
+                    border: 2px solid {badge_info['color']};
+                    padding: 20px;
+                    border-radius: 20px;
+                    text-align: center;
+                    height: 140px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+                ">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">{badge_info['icon']}</div>
+                    <div style="font-weight: 700; color: #1e293b; font-size: 0.9rem;">{badge_info['name']}</div>
+                    <div style="font-size: 0.7rem; color: #64748b; margin-top: 5px;">Earned Today!</div>
+                </div>
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
@@ -1675,28 +1683,3 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
-
-import datetime
-
-st.markdown("### 💬 Feedback")
-
-with st.form("feedback_form"):
-    name = st.text_input("Name (optional)")
-    feedback = st.text_area("Your Feedback *", placeholder="Tell us what you think...")
-
-    submitted = st.form_submit_button("Submit Feedback")
-
-    if submitted:
-        if feedback.strip() == "":
-            st.error("Feedback is required.")
-        else:
-            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-            with open("feedback.txt", "a", encoding="utf-8") as f:
-                f.write(f"Time: {timestamp}\n")
-                f.write(f"Name: {name if name else 'Anonymous'}\n")
-                f.write(f"Feedback: {feedback}\n")
-                f.write("-" * 40 + "\n")
-
-            st.success("Thank you for your feedback! 🙌")
-
