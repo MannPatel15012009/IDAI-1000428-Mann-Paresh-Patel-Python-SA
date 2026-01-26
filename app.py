@@ -1404,29 +1404,10 @@ with left:
                                 st.session_state.celebration = f"{random.choice(celebration_messages)} +{points_earned} points"
                             
                             st.rerun()
-        else:
-         st.markdown("""
-         <div style="
-            text-align: center; 
-            padding: 60px 30px; 
-            background: #f8fafc; 
-            border-radius: 24px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 2px dashed #6366f1;
-            margin: 20px 0;
-         ">
-            <div style="font-size: 3rem; margin-bottom: 15px; color: #6366f1;">📭</div>
-            <h3 style="color: #1e293b !important; margin-bottom: 15px; font-size: 1.5rem;">
-                No medications scheduled for today
-            </h3>
-            <p style="color: #475569 !important; font-size: 1.1rem; margin-bottom: 10px;">
-                Add your first medicine above to start tracking! 🚀
-            </p>
-            <div style="margin-top: 20px; font-size: 0.9rem; color: #64748b !important;">
-                Click the <strong style="color: #6366f1;">"➕ Add New Medication"</strong> section above
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+           else:
+        # Simple text that will definitely show
+        st.info("📭 No medications scheduled for today. Add your first medicine above!")
+        st.markdown("<div style='text-align: center; padding: 20px; color: #000000;'>Click 'Add Medicine' to get started 🚀</div>", unsafe_allow_html=True)
 # ------------------------------------------
 # PROGRESS & GAMIFICATION PANEL
 # ------------------------------------------
