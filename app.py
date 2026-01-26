@@ -1293,19 +1293,7 @@ with left:
     
     today = datetime.date.today()
     now = datetime.datetime.now().time()
-    
-    # DEBUG: Check what's in meds
-    print(f"DEBUG: Total meds in session: {len(st.session_state.meds)}")
-    
     meds_today = [m for m in st.session_state.meds if m["date"] == today]
-    print(f"DEBUG: Meds today: {len(meds_today)}")
-    
-    # Always show this for testing
-    st.markdown(f"""
-    <div style="background: #f0f9ff; padding: 10px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #0ea5e9;">
-        <small>Today is {today.strftime('%B %d, %Y')} | Found {len(meds_today)} medications for today</small>
-    </div>
-    """, unsafe_allow_html=True)
     
     if meds_today:
         # Sort medicines by time
@@ -1417,37 +1405,10 @@ with left:
                             
                             st.rerun()
     else:
-        # SHOW THIS WHEN NO MEDICINES - with guaranteed visibility
         st.markdown("""
-        <div style="
-            text-align: center; 
-            padding: 60px 30px; 
-            background: #ffffff; 
-            border-radius: 20px; 
-            margin: 20px 0;
-            border: 2px solid #e2e8f0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        ">
-            <div style="font-size: 48px; margin-bottom: 20px; color: #94a3b8;">
-                💊
-            </div>
-            <h3 style="color: #000000 !important; margin: 0 0 15px 0; font-size: 1.5rem;">
-                No medications scheduled for today
-            </h3>
-            <p style="color: #333333 !important; font-size: 1.1rem; margin: 0 0 20px 0;">
-                Add your first medicine to start tracking!
-            </p>
-            <div style="
-                display: inline-block; 
-                background: #6366f1; 
-                color: white; 
-                padding: 10px 20px; 
-                border-radius: 10px;
-                font-weight: 600;
-                margin-top: 10px;
-            ">
-                Click "Add Medicine" above
-            </div>
+        <div style="text-align: center; padding: 50px; background: white; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <h3 style="color: Black;">No medications scheduled for today</h3>
+            <p>Add your first medicine above to start tracking! 🚀</p>
         </div>
         """, unsafe_allow_html=True)
 # ------------------------------------------
