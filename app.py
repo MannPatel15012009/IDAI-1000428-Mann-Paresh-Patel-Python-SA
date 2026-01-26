@@ -975,8 +975,8 @@ def show_advanced_progress():
             if weekend_avg < weekday_avg * 0.8:
                 st.info("**Pattern detected:** Your adherence is lower on weekends.")
     
-    with tab3:
-        st.subheader("💡 Your Personalized Insights")
+        with tab3:
+         st.subheader("💡 Your Personalized Insights")
         
         for insight in st.session_state.progress_insights:
             st.markdown(f"""
@@ -986,6 +986,8 @@ def show_advanced_progress():
                 padding: 15px;
                 border-radius: 8px;
                 margin: 10px 0;
+                color: #0369a1;
+                font-weight: 500;
             ">
                 {insight}
             </div>
@@ -1404,12 +1406,21 @@ with left:
                             st.rerun()
     else:
         st.markdown("""
-        <div style="text-align: center; padding: 50px; background: white; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-            <h3 style="color: Black;">No medications scheduled for today</h3>
-            <p>Add your first medicine above to start tracking! 🚀</p>
+        <div style="
+            text-align: center; 
+            padding: 50px; 
+            background: white; 
+            border-radius: 24px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 2px dashed #cbd5e1;
+        ">
+            <h3 style="color: #1e293b; margin-bottom: 15px;">📭 No medications scheduled for today</h3>
+            <p style="color: #64748b; font-size: 1.1rem;">Add your first medicine above to start tracking! 🚀</p>
+            <div style="margin-top: 20px; font-size: 0.9rem; color: #94a3b8;">
+                Click the <strong>"➕ Add New Medication"</strong> section above
+            </div>
         </div>
         """, unsafe_allow_html=True)
-
 # ------------------------------------------
 # PROGRESS & GAMIFICATION PANEL
 # ------------------------------------------
